@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lennix's Portfolio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      color: black;
+    }
+
+    .header {
+      background-color: #333;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .header-title {
+      font-size: 2rem;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .header-subtitle {
+      font-size: 1rem;
+      color: white;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .image-container {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .text {
+      font-size: 1rem;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .portfolio-item {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  transform: translateX(-50px);
+  font-weight: bold;
+}
+
+.portfolio-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+    .portfolio-item-glow {
+      animation: glow 1s infinite;
+      
+    }
+
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 10px yellow;
+      }
+      50% {
+        box-shadow: 0 0 20px yellow;
+      }
+      100% {
+        box-shadow: 0 0 10px yellow;
+      }
+    }
+    .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 5vh;
+        }
+    .carousel-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 300px;
+      margin-bottom: 30px;
+    }
+
+    .carousel-card {
+      display: none;
+    }
+
+    .carousel-card.active {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .carousel-image {
+  width: 500px;
+  height: 300px;
+  object-fit: contain;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.carousel-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.carousel-buttons button {
+  width: 40px;
+  height: 40px;
+  margin: 0 5px;
+  font-size: 1rem;
+  background-color: rgb(10, 112, 112);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-buttons button:hover {
+  background-color: darkcyan;
+}
+
+    .footer {
+      background-color: #f0f0f0;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .footer div {
+      margin-bottom: 10px;
+    }
+
+    .footer a {
+      color: #333;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer a:hover {
+      color: yellow;
+    }
+
+    .download-button {
+      display: inline-block;
+      background-color: #4ca8af;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1rem;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .download-button:hover {
+      background-color: #4499d1;
+    }
+    .container2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd; 
+  border-radius: 4px;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1 class="header-title">Lennix Stevens Portfolio</h1>
+    <p class="header-subtitle" style="color: yellow; font-weight: bold;">Project Leadership | Code Development | Testing | Research | Efficiency Algorithm Applications| C# Specialist
+      | Digital Circuits | Java, C, C#, C++, Python, HTML and SQL Programing | Data Structures | Program Integration | Data Visualization | System Analysis and Design |
+      </p>
+  </div>
+
+  <div class="container">
+    <div class="image-container">
+      <img src="Images/Head1.jpg" alt="Profile Picture">
+    </div>
+    <div class="title">About Me</div>
+    <div class="text">I am a Computer Science Major with a Minor of Information Systems graduate from Tarleton State University May 2023.
+       I have an extensive skillset in software development that includes various framework, languages, and development modeling techniques that will be of great value to any company.
+       Above all I am an avid learner that continues to improve himself well beyond the requirements of any project or class and I am driven by
+      my own longstnding philosopy...
+      <br>
+          <i><b>"If it is proven that a task can be done their is no reason it cannot be improved!"</b></i></div>
+    <a class="download-button" href="Images/Lennix Stevens CS Resume A.docx" download>Download Resume</a>
+  </div>
+  <h2 style="text-align: center; background-color: yellow; color: rgb(0, 0, 0); padding: 10px;">
+    Projects
+  </h2>
+  <div class="portfolio-item portfolio-item-glow visible">
+    <h3>C# programming </h3>
+  </div>
+  <div class="carousel-container">
+    <div class="carousel-card active">
+      <img class="carousel-image" src="Images/Images/CSharp/CS_P1.1.png" alt="Image 1">
+    </div>
+    <div class="carousel-card">
+      <img class="carousel-image" src="Images/Images/CSharp/CS_P1.2.png" alt="Image 2">
+    </div>
+    <div class="carousel-card">
+      <img class="carousel-image" src="Images/Images/CSharp/CS_P1.3.png" alt="Image 3">
+    </div>
+    <div class="carousel-card">
+      <img class="carousel-image" src="Images/Images/CSharp/CS_P1.4.png" alt="Image 3">
+    </div>
+    <div class="carousel-card">
+      <img class="carousel-image" src="Images/Images/CSharp/CS_P2.png" alt="Image 3">
+    </div>
+    <div class="carousel-card">
+      <img class="carousel-image" src="Images/Images/CSharp/CS_P2.2.png" alt="Image 3">
+    </div>
+  </div>
+  <div class="center">
+  <a href="https://github.com/DeadP00l55/CS.NET" class="download-button">View Project</a>
+  </div>
+  <div class="carousel-buttons">
+    <button id="prevButton1">&larr;</button>
+    <button id="nextButton1">&rarr;</button>
+  </div>
+  <div class="text"> A few examples of my utilization of C# to create bound and unbound controls on various
+    forms in Visual Studio 2022 both in .NET and ASP.Net by making use of SQL created tables, data binding 
+    and data visualization.
+   <br>
+  </div>
+  
+  <div class="portfolio-item portfolio-item-glow visible">
+    Java programming 
+  </div>
+  <div class="carousel-container">
+    <div class="carousel-card active">
+      <img class="carousel-image" src="Images/J1.png" alt="Image 1">
+    </div>
+    <div class="carousel-card">
+      <img class="carousel-image" src="Images/Images/Java/J2.png" alt="Image 2">
+    </div>
+    <div class="carousel-card">
+      <img class="carousel-image" src="Images/Images/Java/J3API.png" alt="Image 3">
+    </div>
+    <div class="carousel-card">
+      <img class="carousel-image" src="Images/Images/Java/J4Origin.png" alt="Image 4">
+    </div>
+    <div class="carousel-card">
+      <img class="carousel-image" src="Images/Images/Java/J4.1Origin.png" alt="Image 5">
+    </div>
+  </div>
+  <div class="center">
+    <a href="https://github.com/DeadP00l55/TicTacGUI" class="download-button">View Project</a>
+  </div>
+  <div class="carousel-buttons">
+    <button id="prevButton2">&larr;</button>
+    <button id="nextButton2">&rarr;</button>
+  </div>
+  <div class="text">The snippets above display both a java console application I created as prototype and the resulting 
+    Tic Tac Toe GUI I designed to eliminate some needed validation and make my program more user friendly
+    as well as the base code of an API app I am developing.
+   <br>
+  </div>
+  
+  <div class="portfolio-item portfolio-item-glow visible">
+    Python programming 
+  </div>
+  <div class="carousel-container">
+    <div class="carousel-card active">
+      <img class="carousel-image" src="Images/Images/Python/py.Crypt.png" alt="Image 1">
+    </div>
+    <div class="carousel-card">
+      <img class="carousel-image" src="Images/Images/Python/py.Task.png" alt="Image 2">
+    </div>
+    <div class="carousel-card">
+      <img class="carousel-image" src="Images/Images/Python/PYCryptcode.png" alt="Image 3">
+    </div>
+  </div>
+  <div class="center">
+    <a href="https://github.com/DeadP00l55/Encryption-Project" class="download-button">View Project</a>
+  </div>
+  <div class="carousel-buttons">
+    <button id="prevButton3">&larr;</button>
+    <button id="nextButton3">&rarr;</button>
+  </div>
+  <div class="text">These are my Python console applications that I developed, one being a simple task manager
+    that is a prototype for a grid view GUI and the other being a password manager that utilizes JSON to encrypt and 
+    decrypt storred passwords.
+   <br>
+  </div>
+<div class="portfolio-item portfolio-item-glow visible">
+    C++ programming 
+  </div>
+  <div class="carousel-container">
+    <div class="carousel-card active">
+      <img class="carousel-image" src="Images/Images/C++/DemoChesscd.png" alt="Image 1">
+    </div>
+    <div class="carousel-card">
+      <img class="carousel-image" src="Images/Images/C++/DemoChessO.png" alt="Image 2">
+    </div>
+    <div class="carousel-card">
+      <img class="carousel-image" src="Images/Images/C++/ChessCode.png" alt="Image 3">
+    </div>
+  </div>
+  <div class="center">
+    <a href="https://github.com/DeadP00l55/Chess-Demo" class="download-button">View Project</a>
+  </div>
+  <div class="carousel-buttons">
+    <button id="prevButton4">&larr;</button>
+    <button id="nextButton4">&rarr;</button>
+  </div>
+  <div class="text"> What you see above is a pawn movement prototype project I am working on 
+    with the goal of building my own game of chess utilizing the Qt library for gui, for now however I am simply inputing 
+    possible moves each piece can make.
+   <br>
+  </div>
+  <div class="portfolio-item portfolio-item-glow visible">
+    HTML programming 
+  </div>
+  <div class="carousel-container">
+    <div class="carousel-card active">
+      <img class="carousel-image" src="Images/Images/HTML/HTML_Home.png" alt="Image 1">
+    </div>
+    <div class="carousel-card">
+      <img class="carousel-image" src="Images/Images/HTML/HTML_Catalog.png" alt="Image 2">
+    </div>
+    <div class="carousel-card">
+      <img class="carousel-image" src="Images/Images/HTML/HTML_Contact.png" alt="Image 3">
+    </div>
+  </div>
+  <div class="center">
+    <a href="https://github.com/DeadP00l55/Web-Demo" class="download-button">View Project</a>
+    </div>
+  <div class="carousel-buttons">
+    <button id="prevButton5">&larr;</button>
+    <button id="nextButton5">&rarr;</button>
+  </div>
+  <div class="text">This is a sample webframe I designed in Visual Studio Code using PHP, CSS, and HTML
+    for based on a client's simple design request and agile implementation.
+  <div class="container">
+  <h2>Contact Me</h2>
+  <form id="contactForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" required>
+    <br>
+    <label for="company">Company:</label>
+    <input type="text" id="company" required>
+    <br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" required>
+    <br>
+    <label for="message">Message:</label>
+    <textarea id="message" required></textarea>
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+  </div>
+  <div class="footer">
+    <div>Phone: 260-494-9445</div>
+    <div>Email: <a href="mailto:lennixstevens47mchs@gmail.com">lennixstevens47mchs@gmail.com</a></div>
+    <div><a href="https://github.com/DeadP00l55">GitHub</a></div>
+    <div><a href="https://www.linkedin.com/in/lennix-stevens/">LinkedIn</a></div>
+  </div>
+  <script src="carousel.js"></script>
+  <script src="script.js"></script>
+</body>
+</html> 
+   <br>
+  
+
+
+
+
